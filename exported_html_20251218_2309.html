@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>the internet chill zone</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* General Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://wallpaperbat.com/img/156023-rainy-city-night-wallpaper.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Sticky Top Bar */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #f3f4f6;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #00d4ff;
+        }
+
+        /* Main Container */
+        .container {
+            padding: 1rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Custom Layout with Games at the Bottom */
+        .windows-layout {
+            display: grid;
+            grid-template-areas: 
+                "description clock"
+                "chatroom ai-chat"
+                "mini-games mini-games";
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 1fr 1fr 2fr;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .box {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            text-align: center;
+            color: white;
+        }
+
+        .box h2 {
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .description {
+            grid-area: description;
+        }
+
+        .clock {
+            grid-area: clock;
+        }
+
+        .chatroom {
+            grid-area: chatroom;
+        }
+
+        .mini-games {
+            grid-area: mini-games;
+        }
+
+        .ai-chat {
+            grid-area: ai-chat;
+        }
+
+        .mini-games iframe {
+            height: 400px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            margin-top: 1rem;
+            background: rgba(0, 0, 0, 0.6);
+            color: #f3f4f6;
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        /* Mobile Scaling */
+@media (max-width: 900px) {
+    .windows-layout {
+        grid-template-areas:
+            "description"
+            "clock"
+            "chatroom"
+            "ai-chat"
+            "mini-games";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+
+    iframe {
+        height: 300px;
+    }
+
+    .mini-games iframe {
+        height: 350px;
+    }
+}
+.glow-time {
+    font-size: 2.4rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow:
+        0 0 8px rgba(0, 212, 255, 0.6),
+        0 0 16px rgba(0, 212, 255, 0.4);
+    margin-top: 0.5rem;
+}
+
+.soft-date {
+    margin-top: 0.3rem;
+    font-size: 0.95rem;
+    opacity: 0.85;
+}
+#visitor-counter {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <header>
+        <h1>the internet chill zone</h1>
+        <nav>
+            <a href="#description">Home</a>
+            <a href="#chatroom">Search</a>
+            <a href="#ai-chat">Credits</a>
+            <a href="#mini-games">Other</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="windows-layout">
+            <!-- Description Section -->
+            <div id="description" class="box description">
+                <h2>welcome to the internet chill zone!</h2>
+                <p>relax, talk to people, enjoy the mini-games i made, and talk to the ai friend. more stuff above in the topbar</p>
+                <br>
+                <div id="visitor-counter">
+    Visitors: <span id="visitorCount">0</span> |
+    Visits: <span id="visitCount">0</span>
+</div>
+            </div>
+
+            <!-- Clock Section -->
+            <div class="box clock">
+    <h2>cst clock + date</h2>
+    <div class="time glow-time">00:00:00</div>
+    <div class="date soft-date">January 1, 2025</div>
+</div>
+
+
+            <!-- Chatroom Section -->
+            <div id="chatroom" class="box chatroom">
+                <h2>chatroom</h2>
+                <script src="https://minnit.chat/js/embed.js?c=1758971289" defer></script><span style="display: none;" class="minnit-chat-sembed" data-chatname="https://organizations.minnit.chat/982829737643837/c/Chatroom?embed" data-style="width:90%; height:500px; max-height:90vh;" data-version="1.55">Chat</span><p class="powered-by-minnit"><a href="https://minnit.chat" target="_blank">Chatroom embedded via Minnit Chat</a></p>
+            </div>
+
+            <!-- AI Chatbot Section -->
+            <div id="ai-chat" class="box ai-chat">
+                <h2>vent to a ai friend</h2>
+                <iframe src="https://friend.com/"></iframe>
+            </div>
+
+            <!-- Mini-Games Section (Largest at the Bottom) -->
+            <div id="mini-games" class="box mini-games">
+                <h2>Mini-Games</h2>
+                <iframe src="https://example-games-embed.com"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 the internet chill zone | made with passion by galaxydev <3
+    </footer>
+
+    <!-- JavaScript for Live Time and Date -->
+    <script>
+    function updateClock() {
+        const timeElement = document.querySelector(".time");
+        const dateElement = document.querySelector(".date");
+        const now = new Date();
+
+        const hours24 = now.getHours();
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        const ampm = hours24 >= 12 ? 'PM' : 'AM';
+        const hours12 = hours24 % 12 || 12;
+
+        timeElement.textContent = `${hours12}:${minutes}:${seconds} ${ampm}`;
+
+        const dateOptions = {
+            weekday: 'long',
+            month: 'long',
+            day: 'numeric'
+        };
+
+        dateElement.textContent = now.toLocaleDateString('en-US', dateOptions);
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+        
+    // Total visits (counts every page load)
+    let visits = localStorage.getItem("totalVisits");
+    visits = visits ? parseInt(visits) + 1 : 1;
+    localStorage.setItem("totalVisits", visits);
+    document.getElementById("visitCount").textContent = visits;
+
+    // Unique visitor check
+    let isVisitor = localStorage.getItem("uniqueVisitor");
+
+    if (!isVisitor) {
+        let visitorCount = localStorage.getItem("visitorCount");
+        visitorCount = visitorCount ? parseInt(visitorCount) + 1 : 1;
+        localStorage.setItem("visitorCount", visitorCount);
+        localStorage.setItem("uniqueVisitor", "true");
+        document.getElementById("visitorCount").textContent = visitorCount;
+    } else {
+        document.getElementById("visitorCount").textContent =
+            localStorage.getItem("visitorCount") || 1;
+    }
+    </script>
+</body>
+</html>
